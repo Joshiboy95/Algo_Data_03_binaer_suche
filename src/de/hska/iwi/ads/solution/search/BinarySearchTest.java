@@ -31,6 +31,54 @@ class BinarySearchTest extends SearchTest{
 	}
 	
 	@Test
+	void testBinarySearchSwapedBorders() {
+	    Search<Integer> search = createSearch();
+	    //Index   		0  1  2  3
+	    Integer [] a = {0, 1, 2 ,3};
+	    assertEquals(1, search.search(a, 1, 3, 0));
+	}
+	
+	@Test
+	void testBinarySearchFindElementLeftOfBorder() {
+	    Search<Integer> search = createSearch();
+	    //Index   		0   1  2
+	    Integer [] a = {1 , 3, 4};
+	    assertEquals(0, search.search(a, 1, 1, 1));
+	}
+	
+	@Test
+	void testBinarySearchFindElementRightOfBorder() {
+	    Search<Integer> search = createSearch();
+	    //Index   		0   1  2
+	    Integer [] a = {1 , 3, 4};
+	    assertEquals(2, search.search(a, 4, 1, 1));
+	}
+	
+	@Test
+	void testBinarySearchFindFirstOccuranceMiddle() {
+	    Search<Integer> search = createSearch();
+	    //Index   		0   1  2  3  4  5  6  7  8
+	    Integer [] a = {1 , 2, 3, 3, 3, 3, 3, 4, 5};
+	    assertEquals(2, search.search(a, 3));
+	}
+	
+	@Test
+	void testBinarySearchFindFirstOccuranceleft() {
+	    Search<Integer> search = createSearch();
+	    //Index   		0  1  2  3  4  5  6  7  8
+	    Integer [] a = {3, 3, 3, 3, 4, 5, 6, 7, 8};
+	    assertEquals(0, search.search(a, 3));
+	}
+	
+	@Test
+	void testBinarySearchFindFirstOccuranceright() {
+	    Search<Integer> search = createSearch();
+	    //Index   		0   1   2   3  4  5  6  7  
+	    Integer [] a = {-1, -1, -1, 0, 3, 3, 3, 3 };
+	    assertEquals(4, search.search(a, 3));
+	}
+	
+	@Test
 	void testBinarySearchSingleElementArrayMissingKeyLeft() {
 	    Search<Integer> search = createSearch();
 	    //Index   		0   
