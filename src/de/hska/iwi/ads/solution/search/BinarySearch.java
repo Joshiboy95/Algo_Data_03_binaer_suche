@@ -11,6 +11,20 @@ import de.hska.iwi.ads.search.Search;
  */
 public class BinarySearch<E extends Comparable<E>> implements Search<E>{
 
+	/**
+	 * Implementation of binary search which finds the index of an {@link Comparable} element
+	 * in a list of {@link Comparable} elements. <p> If the element can't be found the method 
+	 * returns the position where it should be added to keep the array sorted.
+	 * 
+	 * @param a an array with elements of type {@link Comparable}
+	 * @param key of type {@link Comparable}
+	 * @param left of type {@link Integer}
+	 * @param right of type {@link Integer}
+	 * @return <ul><li><code>index</code> of the element if found;
+	 * 			<li><code>i=left{@literal -}1</code> if <code>key {@literal <} a[left] </code>
+	 * 			<li><code>i=right{@literal +}1</code> if <code>a[right] {@literal <} key </code>
+	 * 			</ul>
+	 */
 	@Override
 	public int search(E [] a, E key, int left, int right) {
 		System.out.println("Searching for " + key);
