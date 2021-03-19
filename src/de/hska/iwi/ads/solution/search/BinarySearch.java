@@ -28,8 +28,7 @@ public class BinarySearch<E extends Comparable<E>> implements Search<E>{
 	 */
 	@Override
 	public int search(E [] a, E key, int left, int right) {
-		System.out.println("Searching for " + key);
-
+		
 		int index = -42;
 		int middle = (left + right) / 2;
 		
@@ -85,8 +84,6 @@ public class BinarySearch<E extends Comparable<E>> implements Search<E>{
 
 			} else if (isLessThan(a[middle],key)) {// key is larger than middle element
 				index = search(a, key, middle + 1, right);
-
-				System.out.println("Searching right of " + middle);
 			}
 		}
 
