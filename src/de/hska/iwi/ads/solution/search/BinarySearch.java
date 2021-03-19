@@ -12,9 +12,10 @@ import de.hska.iwi.ads.search.Search;
 public class BinarySearch<E extends Comparable<E>> implements Search<E>{
 
 	/**
-	 * Implementation of binary search which finds the index of an {@link Comparable} element
-	 * in a list of {@link Comparable} elements. <p> If the element can't be found the method 
-	 * returns the position where it should be added to keep the array sorted.
+	 * Implementation of binary search which finds the index of 
+	 * an {@link Comparable} element in a list of {@link Comparable} elements. <p> 
+	 * If the element can't be found the method returns the 
+	 * position where it should be added to keep the array sorted.
 	 * 
 	 * @param a an array with elements of type {@link Comparable}
 	 * @param key of type {@link Comparable}
@@ -34,16 +35,22 @@ public class BinarySearch<E extends Comparable<E>> implements Search<E>{
 		
 		// If array is empty throw exception
 		if (a.length == 0) { 
-			throw new IllegalArgumentException();
-		} 
+			throw new IllegalArgumentException("Array shouldn't be empty");
+		} else if (left > right) {
+			// Task doesn't state if swapping is a valid fix for IllegalArgument
+			int temp = left;
+			left = right;
+			right = temp;
+		}
 		
-		// 
+		// Checks if a potential index is on the left or right border
 		if (isEqual(key, a[left])) {
 			index = left;
 		} else if (isEqual(key, a[right])) {
 			index = right;
 		}
 		
+		// Checks if left is at the same index as right and the key is less than that element
 		if (left-right == 0) {
 			if (isLessThan(key, a[left])) {
 				return left-1;
@@ -64,14 +71,12 @@ public class BinarySearch<E extends Comparable<E>> implements Search<E>{
 		
 		
 		if(left > right) {
-			System.out.println("Case: left > right  \n left: " + left + ", right: " + right);
-			
-			//TODO
+			//This part isn't used because the algorithm fixes left and right errors
 		} else {
 						
 			if (isEqual(key,a[middle])) { // key is same as middle element
 				index = middle;
-				if (((middle-1) >= 0) && (isEqual(a[middle], a[middle-1]))) {
+				if (((middle-1) >= 0) && (isEqual(a[middle], a[middle-1]))) { // checks if two of the same elements  are in a row
 					index = search(a, key, left, middle -1);
 				}
 
@@ -84,16 +89,7 @@ public class BinarySearch<E extends Comparable<E>> implements Search<E>{
 				System.out.println("Searching right of " + middle);
 			}
 		}
-		
-		
-		if (index < left){
-			return left;
-		} else if (right < index) {
-			return right;
-		}
-		
 
-		
 		return index;
 	}
 	
