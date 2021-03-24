@@ -7,7 +7,6 @@ package de.hska.iwi.ads.solution.sorting;
  * @author Joshua Rosenberger - rojo1041 - 68336
  */
 public class MergesortBasis<E extends Comparable<E>> extends de.hska.iwi.ads.sorting.AbstractMergesort<E>{
-	E [] b;
 	
 	@Override
 	protected void mergesort(E [] a, int left, int right) {
@@ -30,6 +29,7 @@ public class MergesortBasis<E extends Comparable<E>> extends de.hska.iwi.ads.sor
 		int r = middle +1;
 		
 		for (int i = left; i <= right; i++) {
+			System.out.println("a[i]=" + a[i]);
 			if ((r > right) || 
 					((l <= middle) && (isLessOrEqual(a[l], a[r])))) {
 				b[i] = a[l];
@@ -39,11 +39,10 @@ public class MergesortBasis<E extends Comparable<E>> extends de.hska.iwi.ads.sor
 				r++;
 			}
 		}
-		
+		// assign values to a
 		for (int i = left; i <= right; i++) {
 			a[i] = b[i];
 		}
-		
 	}
 	
 	/**
