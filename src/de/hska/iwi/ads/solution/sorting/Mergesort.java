@@ -6,12 +6,32 @@ package de.hska.iwi.ads.solution.sorting;
  * 
  * @author Joshua Rosenberger - rojo1041 - 68336
  */
-public class Mergesort extends de.hska.iwi.ads.solution.sorting.MergesortBasis {
-
+public class Mergesort<E extends Comparable<E>> extends de.hska.iwi.ads.solution.sorting.MergesortBasis<E> {
+	
+	/**
+	 * Same as pseudocode of task sheet
+	 */
 	@Override
-	protected void mergesort(Comparable[] a, int left, int right) {
-		// TODO Auto-generated method stub
+	public void merge(E [] a, int left, int middle, int right) {
 		
+		int l = left;
+		int r = middle +1;
+		
+		for (int i = left; i <= right; i++) {
+
+			if ((r > right) || 
+					((l <= middle) && (isLessOrEqual(a[l], a[r])))) {
+				b[i] = a[l];
+				l++;
+			} else {
+				b[i] = a[r];
+				r++;
+			}
+		}
+		// assign values to a
+		for (int i = left; i <= right; i++) {
+			a[i] = b[i];
+		}
 	}
 
 }
