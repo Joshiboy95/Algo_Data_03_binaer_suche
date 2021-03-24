@@ -11,6 +11,12 @@ import de.hska.iwi.ads.solution.search.BinarySearch;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * Tests for class BinarySearch
+ * 
+ * @author Stephanie Thiele-Bergmann - thst1012 - 68244
+ */
+
 public class BinarySearchTest extends SearchTest {
 
 	@Override
@@ -73,13 +79,13 @@ public class BinarySearchTest extends SearchTest {
 		assertEquals(0, search.search(a, 5));
 	}
 
-	// not found???
+	// not found
 	@Ignore
 	@Test
 	void testBinarySearchNotFound() {
 		Search<Integer> search = createSearch();
-		Integer[] a = { 1, 2, 3, 4, 5, 7, 8, 9, };
-		assertEquals(4, search.search(a, 6));
+		Integer[] a = { 1, 2, 3, 4, 5, 7, 8, 9 };
+		assertEquals(5, search.search(a, 6));
 	}
 
 	// anywhere in array
