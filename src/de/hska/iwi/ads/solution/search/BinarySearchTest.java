@@ -3,8 +3,6 @@ package de.hska.iwi.ads.solution.search;
 import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.Ignore;
-
 import de.hska.iwi.ads.search.Search;
 import de.hska.iwi.ads.search.SearchTest;
 import de.hska.iwi.ads.solution.search.BinarySearch;
