@@ -64,7 +64,8 @@ class ReverseArrayTest {
 		assertArrayEquals(new Integer[] {2, 0, 3, 4, 1, 5}, randomArray);
 	}
 
-	@Test 
+	
+	/*@Test 
 	void testReverseStringFull() {
 		String[] stringArray = new String[] {"Otto", "Anna", "Bob","Hannah"};
 		reverseStringArray.reverse(stringArray,0,3);
@@ -76,7 +77,7 @@ class ReverseArrayTest {
 		Boolean[] boolArray = new Boolean[] {true, false, true, false};
 		reverseBooleanArray.reverse(boolArray,0,3);
 		assertArrayEquals(new Boolean[] {false, true, false, true}, boolArray);
-	}
+	}*/
 	
 	@Test 
 	void testReverseReuseReverseObject() {
@@ -157,8 +158,8 @@ class ReverseArrayTest {
 	 * Testing false parameters:
 	 * Should all throw IllegalArgumentExceptions
 	 * Array should stay unchanged
-	 * TODO klären mit @Stephanie
-	 * können wir noch ändern wenn du denkst es soll was anderes passieren
+	 * TODO klï¿½ren mit @Stephanie
+	 * kï¿½nnen wir noch ï¿½ndern wenn du denkst es soll was anderes passieren
 	 */
 	
 	@Test 
@@ -175,7 +176,7 @@ class ReverseArrayTest {
 		
 	/**
 	 * Reversing with swapped from and to
-	 * TODO klären mit @Stephanie
+	 * TODO klï¿½ren mit @Stephanie
 	 * soll das dann noch korrekt funktionieren? 
 	 * erwartet momentan dass die werte getauscht werden
 	 */
