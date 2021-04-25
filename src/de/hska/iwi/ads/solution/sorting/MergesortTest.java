@@ -10,21 +10,17 @@ import de.hska.iwi.ads.search.Search;
 import de.hska.iwi.ads.solution.search.BinarySearch;
 
 public class MergesortTest{
-
-	
-	public <E extends Comparable<E>> Sort<E> createSorting() {
-		return new Mergesort<E>();
-	}
 	
 	//general test
 	@Test
 	void testMergesortGeneral() {
+		Mergesort<Integer> mergesort = new Mergesort<Integer>();
 			Integer[] a = { 2, 1, 7, 12, 5, 9, 8, 10 };
 			Integer[] result = { 1, 2, 5, 7, 8, 9, 10, 12 };
-			Mergesort<Integer> ms = new Mergesort<Integer>();
-			ms.sort(a);
-			assertTrue(Sort.equals(a, result));
+			mergesort.sort(a);
+			assertArrayEquals(result, a);
 		}
+	
 	//empty list
 	@Test
 	void testMergesortIntArrayIntEmtpy() {
