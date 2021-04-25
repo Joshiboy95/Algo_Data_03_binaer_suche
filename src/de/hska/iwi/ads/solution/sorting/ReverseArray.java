@@ -17,20 +17,16 @@ public class ReverseArray<E extends Comparable<E>> implements Reverse<E> {
 		}
 		
 		//(to-from)/2 to find middle
-		for (int i = 0; i < (to-from)/2; i++) {
-			//swapping out: first element (from) with last element(to), 
-			//second (from-i)with second-to-last(to-i)...
+		for (int i = 0; i < (to-from+1)/2; i++) {
 			
-			//i+from to catch array from the very beginning
+			//swapping out: first element (from+i) with last element(to-i)
 			E reversed = a[i+from];
-			//to-1 to catch array from the very end
 			a[i+from] = a[to -i];
-			
 			a[to -i] = reversed;
 			
 		}
 		
-		}
+	}
 	
 	
 }

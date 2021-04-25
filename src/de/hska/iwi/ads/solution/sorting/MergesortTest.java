@@ -1,6 +1,11 @@
 package de.hska.iwi.ads.solution.sorting;
 
+/*
+ * @author Stephanie Thiele-Bergmann thst1012
+ */
+
 import static org.junit.Assert.assertThrows;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Disabled;
