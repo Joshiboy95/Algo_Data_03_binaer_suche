@@ -24,6 +24,7 @@ public class ReverseArray<E extends Comparable<E>> implements Reverse<E> {
 			a[i+from] = a[to -i];
 			a[to -i] = reversed;
 			
+		
 		}
 		
 	}
