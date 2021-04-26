@@ -34,7 +34,7 @@ public abstract class MergesortBasis<E extends Comparable<E>> extends de.hska.iw
 	 * less or equal than the second element.
 	 * @param firstElement of type {@link Comparable}
 	 * @param secondElement of type {@link Comparable}
-	 * @return true if the firstElement is less than the secondElement
+	 * @return true if the firstElement is less or equal than the secondElement
 	 */
 	protected boolean isLessOrEqual(E firstElement, E secondElement) {
 		return (firstElement.compareTo(secondElement) <= 0);
