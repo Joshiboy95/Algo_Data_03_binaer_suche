@@ -165,18 +165,12 @@ class ReverseArrayTest {
 	@Test 
 	void testReverseWrongFromTo() {
 		Integer[] array = new Integer[] {0,1,2};
+		reverseIntArray.reverse(array,42,42);
+		System.out.println("array: "+ array); // array should stay the same
 		assertThrows(IllegalArgumentException.class, () -> reverseIntArray.reverse(array,42,42));
 		assertEquals(new Integer[] {0,1,2}, array);
 	}
-	
-	@Test 
-	void testReverseNullArray() {
-		Integer[] a = null;
-		reverseIntArray.reverse(a,1,1);
-		System.out.println("Array: reverseIntArray.reverse(null,1,1): " + a);
-		assertThrows(Exception.class, () -> reverseIntArray.reverse(null,1,1));
-	}
-		
+			
 	/**
 	 * Reversing with swapped from and to
 	 * TODO kl�ren mit @Stephanie
