@@ -171,7 +171,10 @@ class ReverseArrayTest {
 	
 	@Test 
 	void testReverseNullArray() {
-		assertThrows(IllegalArgumentException.class, () -> reverseIntArray.reverse(null,1,1));
+		Integer[] a = null;
+		reverseIntArray.reverse(a,1,1);
+		System.out.println("Array: reverseIntArray.reverse(null,1,1): " + a);
+		assertThrows(Exception.class, () -> reverseIntArray.reverse(null,1,1));
 	}
 		
 	/**
