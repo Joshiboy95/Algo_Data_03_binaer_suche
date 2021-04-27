@@ -23,7 +23,7 @@ public abstract class MergesortBasis<E extends Comparable<E>> extends de.hska.iw
 	}
 	
 	/**
-	 * Implemented in {@link Mergesort} and in {@link ReverseMergesort}
+	 * Implemented in {@link RverseMergesort} and in {@link ReverseMergesort}
 	 */
 	protected abstract void merge(E [] a, int left, int middle, int right);  
 	

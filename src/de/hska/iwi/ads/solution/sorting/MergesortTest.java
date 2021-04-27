@@ -27,8 +27,8 @@ class MergesortTest {
 		@Test
 		void testMergesortIntArrayIntEmtpy() {
 			Mergesort<Integer> mergesort = new Mergesort<Integer>();
-			Integer[] a = null;
-			Integer[] result = { };
+			Integer[] a = { };
+			Integer [] result = { };
 			mergesort.sort(a);
 			assertArrayEquals(result, a);
 		}

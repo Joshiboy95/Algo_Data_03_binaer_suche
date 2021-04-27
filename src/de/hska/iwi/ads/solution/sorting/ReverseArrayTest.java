@@ -64,8 +64,8 @@ class ReverseArrayTest {
 		assertArrayEquals(new Integer[] {2, 0, 3, 4, 1, 5}, randomArray);
 	}
 
-	
-	/*@Test 
+	//
+	@Test 
 	void testReverseStringFull() {
 		String[] stringArray = new String[] {"Otto", "Anna", "Bob","Hannah"};
 		reverseStringArray.reverse(stringArray,0,3);
@@ -77,7 +77,7 @@ class ReverseArrayTest {
 		Boolean[] boolArray = new Boolean[] {true, false, true, false};
 		reverseBooleanArray.reverse(boolArray,0,3);
 		assertArrayEquals(new Boolean[] {false, true, false, true}, boolArray);
-	}*/
+	}
 	
 	@Test 
 	void testReverseReuseReverseObject() {

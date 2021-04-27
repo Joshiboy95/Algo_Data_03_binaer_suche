@@ -1,5 +1,9 @@
 package de.hska.iwi.ads.solution.sorting;
 
+/*
+ * @author Stephanie Thiele-Bergmann thst1012
+ */
+
 import de.hska.iwi.ads.sorting.Reverse;
 
 public class ReverseArray<E extends Comparable<E>> implements Reverse<E> {
@@ -17,7 +21,14 @@ public class ReverseArray<E extends Comparable<E>> implements Reverse<E> {
 			to = f;
 		}
 		
-		//(to-from)/2 to find middle
+		if(from >= a.length || to >= a.length) {
+			
+			from = (int) a[0]; //ich versuche hier a.start zu finden-ist das richtig so?
+			to = a.length-1;
+			
+		}
+		
+		//(to-from+1)/2 to find middle
 		for (int i = 0; i < (to-from+1)/2; i++) {
 			
 			//swapping out: first element (from+i) with last element(to-i)
