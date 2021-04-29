@@ -158,24 +158,53 @@ class ReverseArrayTest {
 	 * Testing false parameters:
 	 * Should all throw IllegalArgumentExceptions
 	 * Array should stay unchanged
-	 * TODO kl�ren mit @Stephanie
-	 * k�nnen wir noch �ndern wenn du denkst es soll was anderes passieren
+	 * 
+	 * invalid from
 	 */
 	
 	@Test 
-	void testReverseWrongFromTo() {
+	void testReverseWrongFromToOver1() {
 		Integer[] array = new Integer[] {0,1,2};
 		reverseIntArray.reverse(array,42,42);
-		System.out.println("array: "+ array); // array should stay the same
-		assertThrows(IllegalArgumentException.class, () -> reverseIntArray.reverse(array,42,42));
+		assertThrows(IllegalArgumentException.class, () -> reverseIntArray.reverse(array,42,0));
+		assertEquals(new Integer[] {0,1,2}, array);
+	}
+	
+	/**
+	 * invalid to
+	 */
+	@Test 
+	void testReverseWrongFromToOver2() {
+		Integer[] array = new Integer[] {0,1,2};
+		reverseIntArray.reverse(array,42,42);
+		assertThrows(IllegalArgumentException.class, () -> reverseIntArray.reverse(array,0,42));
+		assertEquals(new Integer[] {0,1,2}, array);
+	}
+	
+	/**
+	 * invalid from
+	 */
+	@Test 
+	void testReverseWrongFromToUnder1() {
+		Integer[] array = new Integer[] {0,1,2};
+		reverseIntArray.reverse(array,42,42);
+		assertThrows(IllegalArgumentException.class, () -> reverseIntArray.reverse(array,-42,0));
+		assertEquals(new Integer[] {0,1,2}, array);
+	}
+	
+	/**
+	 * invalid to
+	 */
+	@Test 
+	void testReverseWrongFromToUnder2() {
+		Integer[] array = new Integer[] {0,1,2};
+		reverseIntArray.reverse(array,42,42);
+		assertThrows(IllegalArgumentException.class, () -> reverseIntArray.reverse(array,0,-42));
 		assertEquals(new Integer[] {0,1,2}, array);
 	}
 			
 	/**
 	 * Reversing with swapped from and to
-	 * TODO kl�ren mit @Stephanie
-	 * soll das dann noch korrekt funktionieren? 
-	 * erwartet momentan dass die werte getauscht werden
 	 */
 	@Test 
 	void testReverseSwapped() {
