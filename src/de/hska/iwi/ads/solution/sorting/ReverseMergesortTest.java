@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test;
 class ReverseMergesortTest {
 
 	//kann ich hier die Tests von Mergesort wirklich wiederverwenden?
+	
 	@Test
 	void testReverseMergesortGeneral() {
 		ReverseMergesort<Integer> merge = new ReverseMergesort<Integer>();
@@ -32,17 +33,15 @@ class ReverseMergesortTest {
 		Integer[] result = new Integer[100000];
 		
 		for(int i = 0; i<100000; i++) {
-			a[i]=i;
+			a[i] = i;
 		}
 		
 		for(int i = 0; i<100000; i++) {
-			result[i]=i;
+			result[i]= i;
 		}
 			
 		merge.sort(a);
 		assertArrayEquals(result, a);
-		
-		
 	}
 
 	@Test
@@ -56,7 +55,7 @@ class ReverseMergesortTest {
 
 	
 	@Test
-	void testMergesortOneElement() {
+	void testReverseMergesortOneElement() {
 		ReverseMergesort<Integer> mergesort = new ReverseMergesort<Integer>();
 		Integer[] a = { 5 };
 		Integer[] result = { 5 };
@@ -66,7 +65,7 @@ class ReverseMergesortTest {
 
 	
 	@Test
-	void testMergesortTwoElements() {
+	void testReverseMergesortTwoElements() {
 		ReverseMergesort<Integer> mergesort = new ReverseMergesort<Integer>();
 		Integer[] a = { 5, 3 };
 		Integer[] result = { 3, 5 };
@@ -76,7 +75,7 @@ class ReverseMergesortTest {
 
 	
 	@Test
-	void testMergesortAlreadySortedList() {
+	void testReverseMergesortAlreadySortedList() {
 		ReverseMergesort<Integer> mergesort = new ReverseMergesort<Integer>();
 		Integer[] a = { 1, 2, 3, 4, 5, 6 };
 		Integer[] result = { 1, 2, 3, 4, 5, 6 };
@@ -86,7 +85,7 @@ class ReverseMergesortTest {
 
 
 	@Test
-	void testMergesortReverseSortedList() {
+	void testReverseMergesortReverseSortedList() {
 		ReverseMergesort<Integer> mergesort = new ReverseMergesort<Integer>();
 		Integer[] a = { 6, 5, 4, 3, 2, 1, };
 		Integer[] result = { 1, 2, 3, 4, 5, 6, };
@@ -96,7 +95,7 @@ class ReverseMergesortTest {
 
 	
 	@Test
-	void testMergesortAllSameElement() {
+	void testReverseMergesortAllSameElement() {
 		ReverseMergesort<Integer> mergesort = new ReverseMergesort<Integer>();
 		Integer[] a = { 7, 7, 7, 7, 7 };
 		Integer[] result = { 7, 7, 7, 7, 7 };
@@ -106,7 +105,7 @@ class ReverseMergesortTest {
 
 	
 	@Test
-	void testMergesortArrayEvenNumber() {
+	void testReverseMergesortArrayEvenNumber() {
 		ReverseMergesort<Integer> mergesort = new ReverseMergesort<Integer>();
 		Integer[] a = { 5, 7, 6, 4, 8, 3, 1 };
 		Integer[] result = { 1, 3, 4, 5, 6, 7, 8 };
@@ -115,7 +114,7 @@ class ReverseMergesortTest {
 	}
 
 	@Test
-	void testMergesortArrayOddNumber() {
+	void testReverseMergesortArrayOddNumber() {
 		ReverseMergesort<Integer> mergesort = new ReverseMergesort<Integer>();
 		Integer[] a = { 5, 7, 6, 4, 8, 3, 1, 10 };
 		Integer[] result = { 1, 3, 4, 5, 6, 7, 8, 10 };
@@ -124,7 +123,7 @@ class ReverseMergesortTest {
 	}
 
 	
-	void testMergesortDuplicates() {
+	void testReverseMergesortDuplicates() {
 		ReverseMergesort<Integer> mergesort = new ReverseMergesort<Integer>();
 		Integer[] a = { 5, 7, 6, 4, 8, 3, 1, 10, 3, 8, 5, };
 		Integer[] result = { 1, 3, 3, 4, 5, 5, 6, 7, 8, 8, 10 };

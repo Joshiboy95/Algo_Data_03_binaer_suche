@@ -23,7 +23,7 @@ class MergesortTest {
 		assertArrayEquals(result, a);
 	}
 	
-	//empty list
+		//empty list
 		@Test
 		void testMergesortIntArrayIntEmtpy() {
 			Mergesort<Integer> mergesort = new Mergesort<Integer>();

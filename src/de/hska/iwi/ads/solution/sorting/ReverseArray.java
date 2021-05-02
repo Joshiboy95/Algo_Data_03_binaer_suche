@@ -22,10 +22,13 @@ public class ReverseArray<E extends Comparable<E>> implements Reverse<E> {
 		}
 		
 		if(from >= a.length || to >= a.length) {
+		
+			throw new IllegalArgumentException();
+		}
+		
+		if(from < 0 || to < 0) {
 			
-			from = (int) a[0]; //ich versuche hier a.start zu finden-ist das richtig so?
-			to = a.length-1;
-			
+			throw new IllegalArgumentException();
 		}
 		
 		//(to-from+1)/2 to find middle
