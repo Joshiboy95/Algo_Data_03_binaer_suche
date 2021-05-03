@@ -12,8 +12,6 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 class ReverseMergesortTest {
-
-	//kann ich hier die Tests von Mergesort wirklich wiederverwenden?
 	
 	@Test
 	void testReverseMergesortGeneral() {
@@ -24,7 +22,7 @@ class ReverseMergesortTest {
 		assertArrayEquals(result, a);
 	}
 	
-	//HIER GROSSES FRAGEZEICHEN
+
 	@Test
 	void testReverseMergesortLarge() {
 		ReverseMergesort<Integer> merge = new ReverseMergesort<Integer>();
@@ -39,9 +37,21 @@ class ReverseMergesortTest {
 		for(int i = 0; i<100000; i++) {
 			result[i]= i;
 		}
-			
+		
+		long time = System.currentTimeMillis();
+		
 		merge.sort(a);
+		
+		long time2 = System.currentTimeMillis();
+		
+		long time3 = time2-time;
+		
+		System.out.println(time3 + " ms");
+		
+		assertTrue(time3 < 1000);
+		
 		assertArrayEquals(result, a);
+		
 	}
 
 	@Test
