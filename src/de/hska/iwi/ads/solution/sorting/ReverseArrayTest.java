@@ -165,9 +165,8 @@ class ReverseArrayTest {
 	@Test 
 	void testReverseWrongFromToOver1() {
 		Integer[] array = new Integer[] {0,1,2};
-		reverseIntArray.reverse(array,42,42);
 		assertThrows(IllegalArgumentException.class, () -> reverseIntArray.reverse(array,42,0));
-		assertEquals(new Integer[] {0,1,2}, array);
+		assertArrayEquals(new Integer[] {0,1,2}, array);
 	}
 	
 	/**
@@ -176,9 +175,8 @@ class ReverseArrayTest {
 	@Test 
 	void testReverseWrongFromToOver2() {
 		Integer[] array = new Integer[] {0,1,2};
-		reverseIntArray.reverse(array,42,42);
 		assertThrows(IllegalArgumentException.class, () -> reverseIntArray.reverse(array,0,42));
-		assertEquals(new Integer[] {0,1,2}, array);
+		assertArrayEquals(new Integer[] {0,1,2}, array);
 	}
 	
 	/**
@@ -187,9 +185,8 @@ class ReverseArrayTest {
 	@Test 
 	void testReverseWrongFromToUnder1() {
 		Integer[] array = new Integer[] {0,1,2};
-		reverseIntArray.reverse(array,42,42);
 		assertThrows(IllegalArgumentException.class, () -> reverseIntArray.reverse(array,-42,0));
-		assertEquals(new Integer[] {0,1,2}, array);
+		assertArrayEquals(new Integer[] {0,1,2}, array);
 	}
 	
 	/**
@@ -198,9 +195,8 @@ class ReverseArrayTest {
 	@Test 
 	void testReverseWrongFromToUnder2() {
 		Integer[] array = new Integer[] {0,1,2};
-		reverseIntArray.reverse(array,42,42);
 		assertThrows(IllegalArgumentException.class, () -> reverseIntArray.reverse(array,0,-42));
-		assertEquals(new Integer[] {0,1,2}, array);
+		assertArrayEquals(new Integer[] {0,1,2}, array);
 	}
 			
 	/**
