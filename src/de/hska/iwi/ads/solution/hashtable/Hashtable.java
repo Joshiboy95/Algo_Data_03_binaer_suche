@@ -86,7 +86,7 @@ public class Hashtable<K extends Comparable<K>, V> extends AbstractHashMap<K, V>
 	/**
 	 * Not needed.
 	 */
-	public void delete(K key) {
+	public void remove(K key) {
 		throw new UnsupportedOperationException("Not yet implemented.");
 	}
 	
