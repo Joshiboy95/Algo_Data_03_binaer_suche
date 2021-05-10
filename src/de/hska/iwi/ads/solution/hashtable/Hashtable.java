@@ -21,14 +21,11 @@ public class Hashtable<K extends Comparable<K>, V> extends AbstractHashMap<K, V>
 	}
 	
 	public V get(Object o) {
-		System.out.println("bla");
 		@SuppressWarnings("unchecked")
 		K key = (K) o;
 		int i = 0;
 		int j = 0;
-		System.out.println("bla1");
 		do {
-			System.out.println("bla2");
 			j = probe(key, i, MAX_PROBING_AMOUNT);
 			
 			if((hashtable[j] != null) && (hashtable[j].getKey().compareTo(key) == 0)) {
@@ -45,7 +42,6 @@ public class Hashtable<K extends Comparable<K>, V> extends AbstractHashMap<K, V>
 	
 	public V put(K key, V value) {
 		int i = 0;
-		System.out.println("blaaa");
 		//System.out.println("Try putting key and value: " + key.toString()+ " | " + value.toString());
 		do {
 			int j = probe(key, i, MAX_PROBING_AMOUNT);
@@ -60,7 +56,7 @@ public class Hashtable<K extends Comparable<K>, V> extends AbstractHashMap<K, V>
 				this.size++;
 				System.out.println("size: " + this.size);
 				System.out.println("new entry: " + hashtable[j].getKey() + " | " + hashtable[j].getValue());
-				return value; // ?????
+				return value;
 			} else {
 				// If key is equal
 				if(hashtable[j].getKey().compareTo(key) == 0) {
@@ -70,7 +66,7 @@ public class Hashtable<K extends Comparable<K>, V> extends AbstractHashMap<K, V>
 					System.out.println("Overwritig entry: " + hashtable[j].getKey() + " | " + hashtable[j].getValue());
 					return old;
 				}
-				System.out.println(key + " > key conflict with: " + hashtable[j].getKey());
+				System.out.println(key + " --> key conflict with: " + hashtable[j].getKey());
 			}
 			
 			i++;
