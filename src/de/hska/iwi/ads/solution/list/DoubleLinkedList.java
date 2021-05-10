@@ -1,5 +1,7 @@
 package de.hska.iwi.ads.solution.list;
 
-public class DoubleLinkedList {
+import de.hska.iwi.ads.dictionary.AbstractDoubleLinkedList;
+
+public class DoubleLinkedList extends AbstractDoubleLinkedList {
 
 }
