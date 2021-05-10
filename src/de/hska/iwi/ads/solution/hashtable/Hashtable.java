@@ -56,7 +56,7 @@ public class Hashtable<K extends Comparable<K>, V> extends AbstractHashMap<K, V>
 				this.size++;
 				System.out.println("size: " + this.size);
 				System.out.println("new entry: " + hashtable[j].getKey() + " | " + hashtable[j].getValue());
-				return value;
+				return value; //task doent state what should be returned here
 			} else {
 				// If key is equal
 				if(hashtable[j].getKey().compareTo(key) == 0) {
