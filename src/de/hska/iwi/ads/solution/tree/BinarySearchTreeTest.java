@@ -77,10 +77,10 @@ public class BinarySearchTreeTest extends MapTest {
 		assertEquals(1, commonTestMap.size());
 		
 		// Overriting value
-		String old = commonTestMap.put(2, "Drölf");
+		String old = commonTestMap.put(2, "Drï¿½lf");
 		assertEquals("Zwei", old);
 		value = (String) commonTestMap.get(2);
-		assertEquals("Drölf", value);
+		assertEquals("Drï¿½lf", value);
 		assertEquals(1, commonTestMap.size());
 	}
 	
@@ -133,7 +133,7 @@ public class BinarySearchTreeTest extends MapTest {
 		assertEquals("I like" + NUMBER_OF_ELEMENTS+1, commonTestMap.get(NUMBER_OF_ELEMENTS+1));
 		timeAfter = System.currentTimeMillis();
 		duration = (int) (timeAfter - timeBefore);
-		//assert duration below threshhold
+		//assert duration below threshold
 		assertTrue(duration <= MAXIMUM_DURATION_MILISECONDS);
 		
 		assertEquals(NUMBER_OF_ELEMENTS+1, commonTestMap.size()+1);
