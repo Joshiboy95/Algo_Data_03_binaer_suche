@@ -56,7 +56,7 @@ public class Hashtable<K extends Comparable<K>, V> extends AbstractHashMap<K, V>
 				this.size++;
 				System.out.println("size: " + this.size);
 				System.out.println("new entry: " + hashtable[j].getKey() + " | " + hashtable[j].getValue());
-				return value; //task doent state what should be returned here
+				return value; //task doesn't state what should be returned here
 			} else {
 				// If key is equal
 				if(hashtable[j].getKey().compareTo(key) == 0) {
@@ -90,8 +90,8 @@ public class Hashtable<K extends Comparable<K>, V> extends AbstractHashMap<K, V>
 	/**
 	 * Quadratic Probing
 	 * @param key the key to be inserted
-	 * @param i the current retrie number
-	 * @param m the maximum retrie amount
+	 * @param i the current retry number
+	 * @param m the maximum retry amount
 	 * 
 	 * @return the index of the next container to probe
 	 */

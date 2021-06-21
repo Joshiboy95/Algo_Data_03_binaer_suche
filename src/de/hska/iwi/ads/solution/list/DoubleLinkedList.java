@@ -15,13 +15,12 @@ public class DoubleLinkedList<K extends Comparable<K>, V> extends AbstractDouble
 
 	@Override
 	public V get(Object o) {
-		// TODO Auto-generated method stub
 		
 		@SuppressWarnings("unchecked") 
 		K key = (K) o;
 		
 		
-		//goes through list, returns null if no key with that value
+		//goes through list, returns null if no key with that value is found
 		ListElement temp = head;
 		
 		while(temp != null) {
@@ -41,9 +40,7 @@ public class DoubleLinkedList<K extends Comparable<K>, V> extends AbstractDouble
 
 	@Override
 	public V put(K key, V value) {
-		// TODO Auto-generated method stub
-		
-		
+
 		//overwrites oldValue with value, if there is a value with that key, returns oldValue
 		ListElement temp = head;
 		
