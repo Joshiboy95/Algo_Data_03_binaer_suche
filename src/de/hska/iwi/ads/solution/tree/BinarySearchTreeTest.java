@@ -130,7 +130,7 @@ public class BinarySearchTreeTest extends MapTest {
 		
 		//get that one higher element
 		timeBefore = System.currentTimeMillis();
-		assertEquals("I like" + NUMBER_OF_ELEMENTS+1, commonTestMap.get(NUMBER_OF_ELEMENTS+1));
+		assertEquals("I like " + NUMBER_OF_ELEMENTS+1, commonTestMap.get(NUMBER_OF_ELEMENTS+1));
 		timeAfter = System.currentTimeMillis();
 		duration = (int) (timeAfter - timeBefore);
 		//assert duration below threshold
