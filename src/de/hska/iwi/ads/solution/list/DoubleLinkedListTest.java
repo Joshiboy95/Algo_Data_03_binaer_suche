@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.Map;
 
+import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import de.hska.iwi.ads.dictionary.MapTest;
@@ -99,6 +101,7 @@ public class DoubleLinkedListTest extends MapTest {
 	}
 	
 	// remove? could take a while to complete
+	@Disabled
 	@Test
 	void testAlmostEndlessList(){
 		commonTestMap = createMap();
