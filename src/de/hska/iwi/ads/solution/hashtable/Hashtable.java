@@ -14,10 +14,16 @@ import de.hska.iwi.ads.dictionary.AbstractDictionary.DictionaryFullException;
 public class Hashtable<K extends Comparable<K>, V> extends AbstractHashMap<K, V>{
 	
 	//Only use prime numbers or police will come!
-	public static final int MAX_PROBING_AMOUNT = 911;
+	public static int MAX_PROBING_AMOUNT;
 
 	public Hashtable(int capacity) {
 		super(capacity);
+		MAX_PROBING_AMOUNT = 911;
+	}
+	
+	public Hashtable(int capacity, int probingAmountPrime) {
+		super(capacity);
+		MAX_PROBING_AMOUNT = probingAmountPrime;
 	}
 	
 	public V get(Object o) {
