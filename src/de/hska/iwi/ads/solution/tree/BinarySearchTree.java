@@ -14,10 +14,10 @@ public class BinarySearchTree<K extends Comparable<K>, V> extends AbstractBinary
 	
 	
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public V get(Object o) {
 		
-		@SuppressWarnings("unchecked")
 		
 		K key = (K) o;
 		
@@ -29,14 +29,16 @@ public class BinarySearchTree<K extends Comparable<K>, V> extends AbstractBinary
 				
 				return temp.entry.getValue();
 				
-			} else if ( < temp.entry.getKey()) {
+			//der cast hier kannn nicht stimmen
+			//traversieren richtig??? Da überseh ich doch was
+			} else if (((Entry<K, V>) temp.left).getKey().compareTo(key) < 0) {
 				
-				return temp.entry.left;
+				return ((Entry<K, V>) temp).getValue();
 			
 			
 			//else for > 
 			}else {
-				return temp.entry.right;
+				return ((Entry<K, V>) temp).getValue();
 			}
 
 			
@@ -47,7 +49,8 @@ public class BinarySearchTree<K extends Comparable<K>, V> extends AbstractBinary
 	@Override
 	public V put(K key, V value) {
 		
-		//if there is  value with the key, overwrite with value and return oldValue
+		
+		//if there is a value with the key, overwrite with value and return oldValue
 		Node temp = root;
 		
 		while(temp != null) {
@@ -59,23 +62,24 @@ public class BinarySearchTree<K extends Comparable<K>, V> extends AbstractBinary
 				temp.entry.setValue(value);
 				
 				return oldValue;
+				
 			}
 			
+			//puts value in a new leaf
+			@SuppressWarnings("unchecked")     
+			Node newRoot = new Node(null, (V) this.root);
+			
+			if (temp.entry.getKey().compareTo(key) < 0 ) {
+				  newRoot = root.left;
+			}
+		
+			if (temp.entry.getKey().compareTo(key) > 0) {
+				newRoot = root.right;
+			}	
 			
 		}
+		return null;
 		
-		//puts value in a new leaf
-		@SuppressWarnings("unchecked")     
-		Node newRoot = new Node(null, (V) this.root);
-		
-		if (this.key < this.root) {
-			  newRoot= root.left;
-		}
-	
-		if (this.key > this.root) {
-			newRoot =  root.right;
-		}
-	
 	}
 
 	
