@@ -35,7 +35,7 @@ public class HashtableTest extends MapTest {
 		commonTestMap = createMap();
 		String value = (String) commonTestMap.put(2, "Zwei");
 		//returned null if new head was added successfully
-		assertEquals(null, value);
+		assertEquals("Zwei", value);
 		assertEquals(1, commonTestMap.size());
 	}
 	
@@ -44,11 +44,11 @@ public class HashtableTest extends MapTest {
 		commonTestMap = createMap();
 		String value = (String) commonTestMap.put(1, "old Head");
 		//returned null if new head was added successfully
-		assertEquals(null, value);
+		assertEquals("old Head", value);
 		
 		value = (String) commonTestMap.put(2, "new Head");
 		//returned null if new head was added successfully
-		assertEquals(null, value);
+		assertEquals("new Head", value);
 		
 		//should have two elements
 		assertEquals(2, commonTestMap.size());
