@@ -16,10 +16,10 @@ public class HashtableTest extends MapTest {
 
 	private Map<Integer, String> commonTestMap;
 	
-	@SuppressWarnings("unchecked")
+	
 	@Override
 	public <K extends Comparable<K>, V> Map<K, V> createMap() {
-		return new DoubleLinkedList();//did we just copy that?
+		return new Hashtable<K, V>(100);
 	}
 	
 	@Test
@@ -85,9 +85,6 @@ public class HashtableTest extends MapTest {
 		assertThrows(UnsupportedOperationException.class,() -> commonTestMap.remove(1));
 	}
 	
-	@Test
-	void testQuadraticProbing() {
-		//TODO
-	}
+	
 
 }

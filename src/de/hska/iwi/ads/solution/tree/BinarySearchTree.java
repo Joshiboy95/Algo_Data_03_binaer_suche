@@ -13,18 +13,14 @@ import de.hska.iwi.ads.dictionary.AbstractBinaryTree;
 public class BinarySearchTree<K extends Comparable<K>, V> extends AbstractBinaryTree<K, V> {
 	
 	
-	//this is waaaaay too slow - 1 failing test
 	@SuppressWarnings("unchecked")
 	@Override
 	public V get(Object o) {
 		
-		
 		K key = (K) o;
 		
 		Node temp = root;
-		
-		Node prev = null;
-		
+	
 		while(temp != null) {
 			
 			if(temp.entry.getKey().compareTo(key) == 0){
@@ -33,27 +29,23 @@ public class BinarySearchTree<K extends Comparable<K>, V> extends AbstractBinary
 				
 				
 			//key ist kleiner als root key
-			} else if (temp.left.getKey().compareTo(key) < 0) {
-				prev = temp;
+			} else if (temp.left.entry.getKey().compareTo(key) < 0) {
+				
 				temp = temp.left;
 				
-				//recursiv weiter suchen
-				return  get(temp.left, key);
-			
-			
+		
 			//else for > 
 			}else {
-				prev = temp;
+				
 				temp = temp.right;
-				
-				return get(temp.right, key);
-				
 			}
 
-			//Versuch, value zurückzugeben
-		}return temp.entry.getValue();
+		}
+		
+		return null;
 }
 	
+
 	
 	@Override
 	public V put(K key, V value) {
@@ -62,9 +54,17 @@ public class BinarySearchTree<K extends Comparable<K>, V> extends AbstractBinary
 		//if there is a value with the key, overwrite with value and return oldValue
 		Node temp = root;
 		
+		Node newEntry = new Node(key, value);
 		
-		
+		if(root == null) {
+			
+			root = newEntry;
+			
+			return value;
+		}
+
 		while(temp != null) {
+
 			
 			if(temp.entry.getKey().compareTo(key) == 0){
 				
@@ -77,28 +77,35 @@ public class BinarySearchTree<K extends Comparable<K>, V> extends AbstractBinary
 			}
 			
 			//puts value in a new leaf
-			@SuppressWarnings("unchecked")     
-			Node newRoot = new Node(null, (V) this.root);
-			
-			Node prev = null;
-			
+	
 			if (temp.entry.getKey().compareTo(key) < 0 ) {
-				prev = temp;
-				temp = temp.left;
 				
-				newRoot = root.left;
+				if(temp.left == null) {
+					
+					temp.left = newEntry;
+					
+					return newEntry.entry.getValue();//should return this or null?
+				}
+			
+				temp = temp.left;
+					
 			}
 		
 			if (temp.entry.getKey().compareTo(key) > 0) {
-				prev = temp;
-				temp = temp.right;
 				
-				newRoot = root.right;
+				if(temp.right == null) {
+					
+					temp.right = newEntry;
+					
+					return newEntry.entry.getValue();//should return this or null?
+				}
+			
+				temp = temp.right;
 			}	
 			
 		}
+
 		return null;//really null?
-		
 	}
 
 	
