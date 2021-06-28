@@ -12,6 +12,12 @@ import org.junit.jupiter.api.Test;
 import de.hska.iwi.ads.dictionary.MapTest;
 import de.hska.iwi.ads.solution.list.DoubleLinkedList;
 
+/**
+ * Tests for hashtable
+ * 
+ * @author Stephanie Thiele-Bergmann - thst1012 - 68244
+ */
+
 public class HashtableTest extends MapTest {
 
 	private Hashtable<Integer, String> commonTestMap;
