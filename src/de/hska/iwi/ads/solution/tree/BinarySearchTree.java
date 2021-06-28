@@ -105,7 +105,7 @@ public class BinarySearchTree<K extends Comparable<K>, V> extends AbstractBinary
 			
 		}
 
-		return null;//really null?
+		return null;
 	}
 
 	

@@ -14,11 +14,11 @@ import de.hska.iwi.ads.solution.list.DoubleLinkedList;
 
 public class HashtableTest extends MapTest {
 
-	private Map<Integer, String> commonTestMap;
+	private Hashtable<Integer, String> commonTestMap;
 	
 	
 	@Override
-	public <K extends Comparable<K>, V> Map<K, V> createMap() {
+	public <K extends Comparable<K>, V> Hashtable<K, V> createMap() {
 		return new Hashtable<K, V>(100);
 	}
 	
