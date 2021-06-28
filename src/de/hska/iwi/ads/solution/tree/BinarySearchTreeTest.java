@@ -12,14 +12,18 @@ import org.junit.jupiter.api.Test;
 import de.hska.iwi.ads.dictionary.MapTest;
 import de.hska.iwi.ads.solution.list.DoubleLinkedList;
 
+/**
+ * Tests for {@link BinarySearchTree}
+ * 
+ * @author Joshua Rosenberger - rojo1041 - 68336
+ */
 public class BinarySearchTreeTest extends MapTest {
 
 	private Map<Integer, String> commonTestMap;
 	
-	@SuppressWarnings("unchecked")
 	@Override
 	public <K extends Comparable<K>, V> Map<K, V> createMap() {
-		return new DoubleLinkedList();
+		return new DoubleLinkedList<K, V>();
 	}
 	
 	@Test
@@ -109,32 +113,35 @@ public class BinarySearchTreeTest extends MapTest {
 	@Test
 	void testLogNDuration(){
 		commonTestMap = createMap();
-		int NUMBER_OF_ELEMENTS = 100000;
-		int MAXIMUM_DURATION_MILISECONDS = 1000;
+		int NUMBER_OF_ELEMENTS = 20000;
+		int MAXIMUM_DURATION_MILISECONDS = 1000; 
 		long timeBefore;
 		long timeAfter;
-		int duration;
+		long duration;
 		
-		for(int i = 0; i <= NUMBER_OF_ELEMENTS; i++) {
+		for(int i = 1; i < NUMBER_OF_ELEMENTS; i++) {
 			commonTestMap.put(i, "I like " + i);
+			System.out.println(i);
 		}
 		
-		//put one element higher than last element
+		//put last element
 		timeBefore = System.currentTimeMillis();
-		assertEquals(null, commonTestMap.put(NUMBER_OF_ELEMENTS+1,"I like " + NUMBER_OF_ELEMENTS+1));
+		assertEquals(null, commonTestMap.put(NUMBER_OF_ELEMENTS,"I like " + NUMBER_OF_ELEMENTS));
 		timeAfter = System.currentTimeMillis();
-		duration = (int) (timeAfter - timeBefore);
+		duration = (timeAfter - timeBefore);
 		//assert duration below threshhold
+		System.out.println(duration + "ms");
 		assertTrue(duration <= MAXIMUM_DURATION_MILISECONDS);
 		
 		
-		//get that one higher element
+		//get that last element
 		timeBefore = System.currentTimeMillis();
-		assertEquals("I like " + NUMBER_OF_ELEMENTS+1, commonTestMap.get(NUMBER_OF_ELEMENTS+1));
+		assertEquals("I like " + NUMBER_OF_ELEMENTS, commonTestMap.get(NUMBER_OF_ELEMENTS));
 		timeAfter = System.currentTimeMillis();
-		duration = (int) (timeAfter - timeBefore);
+		duration = (timeAfter - timeBefore);
 		//assert duration below threshold
 		assertTrue(duration <= MAXIMUM_DURATION_MILISECONDS);
+		System.out.println(duration + "ms");
 		
 		assertEquals(NUMBER_OF_ELEMENTS+1, commonTestMap.size()+1);
 	}
