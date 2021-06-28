@@ -48,7 +48,6 @@ public class Hashtable<K extends Comparable<K>, V> extends AbstractHashMap<K, V>
 	
 	public V put(K key, V value) {
 		int i = 0;
-		//System.out.println("Try putting key and value: " + key.toString()+ " | " + value.toString());
 		do {
 			int j = probe(key, i, MAX_PROBING_AMOUNT);
 			

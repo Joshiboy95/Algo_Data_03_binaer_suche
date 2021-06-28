@@ -12,15 +12,20 @@ import org.junit.jupiter.api.Test;
 
 import de.hska.iwi.ads.dictionary.MapTest;
 import de.hska.iwi.ads.solution.hashtable.Hashtable;
+import de.hska.iwi.ads.solution.tree.BinarySearchTree;
 
+/**
+ * Tests for {@link DoubleLinkedList}
+ * 
+ * @author Joshua Rosenberger - rojo1041 - 68336
+ */
 public class DoubleLinkedListTest extends MapTest {	
 	
 	private Map<Integer, String> commonTestMap;
 	
-	@SuppressWarnings("unchecked")
 	@Override
 	public <K extends Comparable<K>, V> Map<K, V> createMap() {
-		return new DoubleLinkedList();
+		return new DoubleLinkedList<K, V>();
 	}
 	
 	@Test
@@ -38,6 +43,7 @@ public class DoubleLinkedListTest extends MapTest {
 		//returned null if new head was added successfully
 		assertEquals(null, value);
 		assertEquals(1, commonTestMap.size());
+		assertEquals("Zwei",commonTestMap.get(2));
 	}
 	
 	@Test
@@ -53,6 +59,8 @@ public class DoubleLinkedListTest extends MapTest {
 		
 		//should have two elements
 		assertEquals(2, commonTestMap.size());
+		assertEquals("old Head", commonTestMap.get(1));
+		assertEquals("new Head", commonTestMap.get(2));
 	}
 	
 	@Test
@@ -66,6 +74,7 @@ public class DoubleLinkedListTest extends MapTest {
 		
 		//should have only one element
 		assertEquals(1, commonTestMap.size());
+		assertEquals("new Head", commonTestMap.get(1));
 	}
 		
 	
@@ -100,20 +109,21 @@ public class DoubleLinkedListTest extends MapTest {
 		assertThrows(UnsupportedOperationException.class,() -> commonTestMap.remove(1));
 	}
 	
-	// remove? could take a while to complete
-	@Disabled
+	// could take a while to complete
+	//@Disabled
 	@Test
 	void testAlmostEndlessList(){
 		commonTestMap = createMap();
-		int AMOUNT_OF_ELEMENTS = 100000;
+		int AMOUNT_OF_ELEMENTS = 10000;
 		
-		for(int i = 0; i <= AMOUNT_OF_ELEMENTS; i++) {
+		for(int i = 1; i <= AMOUNT_OF_ELEMENTS; i++) {
 			commonTestMap.put(i, "I like " + i);
 		}
 		// getting first (=head) element
 		assertEquals("I like " + AMOUNT_OF_ELEMENTS, commonTestMap.get(AMOUNT_OF_ELEMENTS));
 		//getting last element
-		assertEquals("I like 0", commonTestMap.get(0));
+		assertEquals("I like 1", commonTestMap.get(1));
+		
 		assertEquals(AMOUNT_OF_ELEMENTS, commonTestMap.size());
 	}
 	
