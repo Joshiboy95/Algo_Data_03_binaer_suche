@@ -21,6 +21,7 @@ public class Hashtable<K extends Comparable<K>, V> extends AbstractHashMap<K, V>
 		MAX_PROBING_AMOUNT = 911;
 	}
 	
+	// For tests to define probing prime
 	public Hashtable(int capacity, int probingAmountPrime) {
 		super(capacity);
 		MAX_PROBING_AMOUNT = probingAmountPrime;
@@ -59,26 +60,20 @@ public class Hashtable<K extends Comparable<K>, V> extends AbstractHashMap<K, V>
 			if(hashtable[j] == null) {
 				hashtable[j] = new AbstractMap.SimpleEntry<K, V>(key, value);
 				this.size++;
-				System.out.println("size: " + this.size);
-				System.out.println("new entry: " + hashtable[j].getKey() + " | " + hashtable[j].getValue());
 				return value; //task doesn't state what should be returned here
 			} else {
 				// If key is equal
 				if(hashtable[j].getKey().compareTo(key) == 0) {
-					System.out.println("bla3");
 					V old = hashtable[j].getValue();
 					hashtable[j] = new AbstractMap.SimpleEntry<K, V>(key, value);
-					System.out.println("Overwritig entry: " + hashtable[j].getKey() + " | " + hashtable[j].getValue());
 					return old;
 				}
-				System.out.println(key + " --> key conflict with: " + hashtable[j].getKey());
 			}
 			
 			i++;
 			
 		} while (i < MAX_PROBING_AMOUNT);
 		
-		System.out.println("########### Did nothing with: " + key + " | " + value);
 		throw new DictionaryFullException();
 	}
 	
@@ -103,7 +98,7 @@ public class Hashtable<K extends Comparable<K>, V> extends AbstractHashMap<K, V>
 	private int probe(K key, int i, int m) {
 		int hash = key.hashCode();
 		int nextIndex = Math.floorMod((hash + (int) Math.pow(i, 2)), m);
-		System.out.println("For key: " + key.toString() + " probe:" + nextIndex);
+		//System.out.println("For key: " + key.toString() + " probe:" + nextIndex);
 		return nextIndex;
 	}
 		
