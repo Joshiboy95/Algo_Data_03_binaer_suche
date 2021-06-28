@@ -13,7 +13,7 @@ import de.hska.iwi.ads.dictionary.AbstractBinaryTree;
 public class BinarySearchTree<K extends Comparable<K>, V> extends AbstractBinaryTree<K, V> {
 	
 	
-	
+	//this is waaaaay too slow - 1 failing test
 	@SuppressWarnings("unchecked")
 	@Override
 	public V get(Object o) {
@@ -23,26 +23,35 @@ public class BinarySearchTree<K extends Comparable<K>, V> extends AbstractBinary
 		
 		Node temp = root;
 		
+		Node prev = null;
+		
 		while(temp != null) {
 			
 			if(temp.entry.getKey().compareTo(key) == 0){
 				
 				return temp.entry.getValue();
 				
-			//der cast hier kannn nicht stimmen
-			//traversieren richtig??? Da überseh ich doch was
-			} else if (((Entry<K, V>) temp.left).getKey().compareTo(key) < 0) {
 				
-				return ((Entry<K, V>) temp).getValue();
+			//key ist kleiner als root key
+			} else if (temp.left.getKey().compareTo(key) < 0) {
+				prev = temp;
+				temp = temp.left;
+				
+				//recursiv weiter suchen
+				return  get(temp.left, key);
 			
 			
 			//else for > 
 			}else {
-				return ((Entry<K, V>) temp).getValue();
+				prev = temp;
+				temp = temp.right;
+				
+				return get(temp.right, key);
+				
 			}
 
-			
-		}return null;
+			//Versuch, value zurückzugeben
+		}return temp.entry.getValue();
 }
 	
 	
@@ -52,6 +61,8 @@ public class BinarySearchTree<K extends Comparable<K>, V> extends AbstractBinary
 		
 		//if there is a value with the key, overwrite with value and return oldValue
 		Node temp = root;
+		
+		
 		
 		while(temp != null) {
 			
@@ -69,16 +80,24 @@ public class BinarySearchTree<K extends Comparable<K>, V> extends AbstractBinary
 			@SuppressWarnings("unchecked")     
 			Node newRoot = new Node(null, (V) this.root);
 			
+			Node prev = null;
+			
 			if (temp.entry.getKey().compareTo(key) < 0 ) {
-				  newRoot = root.left;
+				prev = temp;
+				temp = temp.left;
+				
+				newRoot = root.left;
 			}
 		
 			if (temp.entry.getKey().compareTo(key) > 0) {
+				prev = temp;
+				temp = temp.right;
+				
 				newRoot = root.right;
 			}	
 			
 		}
-		return null;
+		return null;//really null?
 		
 	}
 

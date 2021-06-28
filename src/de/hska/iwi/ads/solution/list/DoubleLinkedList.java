@@ -68,9 +68,6 @@ public class DoubleLinkedList<K extends Comparable<K>, V> extends AbstractDouble
 			this.head = newHead;
 		}
 		
-		this.head.previous = newHead;
-		this.head = newHead;
-		
 		size++;
 		
 		return null;
